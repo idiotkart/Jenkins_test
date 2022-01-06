@@ -8,12 +8,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TC_001 {
 	
-	@Test
+	WebDriver driver;
+	
+	
+	
+	@Test(priority=1)
 	public void openFB() throws InterruptedException
 	{
 		WebDriverManager.chromedriver().setup();
 
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 
 		driver.get("https://www.facebook.com/");
 		
@@ -23,5 +27,19 @@ public class TC_001 {
 		
 		System.out.println("Test was successful");
 
+	}
+	
+	@Test(priority=2)
+	public void openGit() throws InterruptedException
+	{
+		WebDriverManager.chromedriver().setup();
+		
+		driver = new ChromeDriver();
+		
+		driver.get("https://github.com/");
+		
+		Thread.sleep(2000);
+		
+		driver.quit();
 	}
 }
